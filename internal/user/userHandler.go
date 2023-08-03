@@ -20,7 +20,7 @@ func NewHandler(service Service) *Handler {
 	}
 }
 
-func (h *Handler) CreateUser(w http.ResponseWriter, r *http.Request) {
+func (h *Handler) Register(w http.ResponseWriter, r *http.Request) {
 	var userData SignUpRequest
 	err := json.NewDecoder(r.Body).Decode(&userData)
 	if err != nil {
@@ -36,7 +36,7 @@ func (h *Handler) CreateUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	response, err := h.service.CreateUser(context.Background(), &userData)
+	response, err := h.service.Register(context.Background(), &userData)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		json.NewEncoder(w).Encode(map[string]any{"error": err.Error()})

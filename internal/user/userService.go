@@ -21,7 +21,7 @@ func NewService(adapter Adapter) Service {
 	}
 }
 
-func (s *service) CreateUser(c context.Context, req *SignUpRequest) (*SignUpResponse, error) {
+func (s *service) Register(c context.Context, req *SignUpRequest) (*SignUpResponse, error) {
 	ctx, cancel := context.WithTimeout(c, s.timeout)
 	defer cancel()
 

@@ -12,17 +12,17 @@ import (
 
 var validate = validator.New()
 
-type handler struct {
+type Handler struct {
 	service Service
 }
 
-func NewHandler(service Service) *handler {
-	return &handler{
+func NewHandler(service Service) *Handler {
+	return &Handler{
 		service: service,
 	}
 }
 
-func (h *handler) GetAllCoffees(w http.ResponseWriter, r *http.Request) {
+func (h *Handler) GetAllCoffees(w http.ResponseWriter, r *http.Request) {
 	coffees, err := h.service.GetAllCoffees(context.Background())
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -34,7 +34,7 @@ func (h *handler) GetAllCoffees(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(coffees)
 }
 
-func (h *handler) GetCoffeeByID(w http.ResponseWriter, r *http.Request) {
+func (h *Handler) GetCoffeeByID(w http.ResponseWriter, r *http.Request) {
 	coffeeID := chi.URLParam(r, "uuid")
 	coffeeUUID, err := uuid.Parse(coffeeID)
 	if err != nil {
@@ -54,7 +54,7 @@ func (h *handler) GetCoffeeByID(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(*coffee)
 }
 
-func (h *handler) CreateCoffee(w http.ResponseWriter, r *http.Request) {
+func (h *Handler) CreateCoffee(w http.ResponseWriter, r *http.Request) {
 	var coffee Coffee
 	err := json.NewDecoder(r.Body).Decode(&coffee)
 	if err != nil {
@@ -81,7 +81,7 @@ func (h *handler) CreateCoffee(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(response)
 }
 
-func (h *handler) UpdateCoffeeByID(w http.ResponseWriter, r *http.Request) {
+func (h *Handler) UpdateCoffeeByID(w http.ResponseWriter, r *http.Request) {
 	coffeeID := chi.URLParam(r, "uuid")
 	coffeeUUID, err := uuid.Parse(coffeeID)
 	if err != nil {
@@ -118,7 +118,7 @@ func (h *handler) UpdateCoffeeByID(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(response)
 }
 
-func (h *handler) DeleteCoffeeByID(w http.ResponseWriter, r *http.Request) {
+func (h *Handler) DeleteCoffeeByID(w http.ResponseWriter, r *http.Request) {
 	coffeeID := chi.URLParam(r, "uuid")
 	coffeeUUID, err := uuid.Parse(coffeeID)
 	if err != nil {

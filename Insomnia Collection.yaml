@@ -1,6 +1,6 @@
 _type: export
 __export_format: 4
-__export_date: 2023-08-01T20:23:06.776Z
+__export_date: 2023-08-03T07:27:53.225Z
 __export_source: insomnia.desktop.app:v2023.4.0
 resources:
   - _id: req_68f69797b07e42d1acf3375a05add46d
@@ -69,7 +69,7 @@ resources:
     _type: request
   - _id: req_79c0f6e62b9040cc9bad218f66c76f48
     parentId: wrk_b48051bb163d4b7e97849c44b2366c33
-    modified: 1690917427494
+    modified: 1691047610088
     created: 1690873194018
     url: localhost:5000/coffee
     name: Create coffee
@@ -79,10 +79,10 @@ resources:
       mimeType: application/json
       text: |-
         {
-        	"name": "c",
-        	"roast": "c",
-        	"region": "c",
-        	"image": "c",
+        	"name": "a",
+        	"roast": "a",
+        	"region": "a",
+        	"image": "a",
         	"price": 2.1,
         	"grind_unit": 2
         }
@@ -123,9 +123,9 @@ resources:
     _type: request
   - _id: req_bc06f67149e1403db1a08ffb8f9cb071
     parentId: wrk_b48051bb163d4b7e97849c44b2366c33
-    modified: 1690917384031
+    modified: 1691047062328
     created: 1690866023689
-    url: localhost:5000/coffee
+    url: localhost:5000/coffees
     name: Get all coffees
     description: ""
     method: GET
@@ -144,9 +144,9 @@ resources:
     _type: request
   - _id: req_84be6876cc2d495abf14cbe06002cd82
     parentId: wrk_b48051bb163d4b7e97849c44b2366c33
-    modified: 1690917366775
+    modified: 1691047096212
     created: 1690866006729
-    url: localhost:5000/user/signout
+    url: localhost:5000/signout
     name: Signout
     description: ""
     method: GET
@@ -165,9 +165,9 @@ resources:
     _type: request
   - _id: req_98945fd1f49542b1b6d694eba292b376
     parentId: wrk_b48051bb163d4b7e97849c44b2366c33
-    modified: 1690917352138
+    modified: 1691047043606
     created: 1690865978532
-    url: localhost:5000/user/signin
+    url: localhost:5000/signin
     name: Signin
     description: ""
     method: POST
@@ -194,9 +194,9 @@ resources:
     _type: request
   - _id: req_df2bfd96a05d4342a3a2aa16fe35390d
     parentId: wrk_b48051bb163d4b7e97849c44b2366c33
-    modified: 1690917316939
+    modified: 1691047033757
     created: 1690865949114
-    url: localhost:5000/user/signup
+    url: localhost:5000/signup
     name: Signup
     description: ""
     method: POST
@@ -235,7 +235,7 @@ resources:
     _type: environment
   - _id: jar_b6db54810b36bf9a4163181bb8931d9f3e30a08b
     parentId: wrk_b48051bb163d4b7e97849c44b2366c33
-    modified: 1690917369774
+    modified: 1691047618112
     created: 1690865945444
     name: Default Jar
     cookies:
@@ -248,5 +248,15 @@ resources:
         pathIsDefault: true
         creation: 2023-08-01T19:15:54.231Z
         lastAccessed: 2023-08-01T19:16:09.774Z
-        id: "7808994044137534"
+        id: "6975576608115415"
+      - key: AuthToken
+        maxAge: 0
+        domain: localhost
+        path: /
+        httpOnly: true
+        hostOnly: true
+        pathIsDefault: true
+        creation: 2023-08-03T07:17:53.814Z
+        lastAccessed: 2023-08-03T07:26:58.111Z
+        id: "6152596527987606"
     _type: cookie_jar

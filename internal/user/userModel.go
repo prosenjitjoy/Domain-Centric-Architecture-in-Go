@@ -42,6 +42,6 @@ type Adapter interface {
 }
 
 type Service interface {
-	CreateUser(c context.Context, req *SignUpRequest) (*SignUpResponse, error)
+	Register(c context.Context, req *SignUpRequest) (*SignUpResponse, error)
 	Login(c context.Context, req *SignInRequest) (*SignInResponse, error)
 }
